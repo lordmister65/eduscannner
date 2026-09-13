@@ -1,0 +1,98 @@
+{% extends "base.html" %}{% block title %}Turmas — EDUSCANNER{% endblock %}{% block content %}
+<div class="page-head">
+  <span class="eyebrow">ORGANIZAÇÃO</span>
+  <div class="head-flex">
+    <div><h1>Turmas</h1><p>Cadastre suas turmas e mantenha os alunos organizados.</p></div>
+    <span class="count-badge large">{{ classes|length }} turmas</span>
+  </div>
+</div>
+{% if erro %}<div class="alert">{{ erro }}</div>{% endif %}
+
+<div class="two-col">
+
+  <div class="panel create-panel">
+    <div class="panel-title">
+      <span class="title-icon">+</span>
+      <div><h2>Nova turma</h2><p>Adicione uma turma ao seu espaço.</p></div>
+    </div>
+    <form method="post" action="/turmas" class="form-stack">
+      <label>Nome da turma<input name="name" placeholder="Ex.: 8º Ano A" required></label>
+      <label>Escola <span class="optional">opcional</span><input name="school" placeholder="Nome da escola"></label>
+      <button class="btn primary full-btn">+ Adicionar turma</button>
+    </form>
+  </div>
+
+  <div class="class-list">
+  {% for c in classes %}
+    <div class="class-card">
+
+      <div class="class-title">
+        <div class="class-heading">
+          <span class="class-icon">♧</span>
+          <div><h2>{{ c.name }}</h2><span class="muted">{{ c.school or "Escola não informada" }}</span></div>
+        </div>
+        <span class="count-badge">{{ c.students|length }} alunos</span>
+      </div>
+
+      <div class="student-list">
+        {% for s in c.students %}
+        <div class="student-row">
+          <span class="mini-avatar">{{ s.name[:1]|upper }}</span>
+          <b>{{ s.student_code }}</b>
+          <span>{{ s.name }}</span>
+          <details class="row-edit">
+            <summary class="btn ghost small">Editar</summary>
+            <form method="post" action="/turmas/{{ c.id }}/alunos/{{ s.id }}/editar" class="inline-form">
+              <input name="student_code" value="{{ s.student_code }}" required>
+              <input name="name" value="{{ s.name }}" required>
+              <button class="btn secondary small">Salvar</button>
+            </form>
+          </details>
+          <form method="post" action="/turmas/{{ c.id }}/alunos/{{ s.id }}/excluir"
+                onsubmit="return confirm('Remover {{ s.name }} da turma?');">
+            <button class="btn ghost small" type="submit">Remover</button>
+          </form>
+        </div>
+        {% else %}
+        <div class="empty">Nenhum aluno ainda.</div>
+        {% endfor %}
+      </div>
+
+      <form method="post" action="/turmas/{{ c.id }}/alunos" class="inline-form">
+        <input name="student_code" placeholder="ID do aluno" required>
+        <input name="name" placeholder="Nome completo" required>
+        <button class="btn secondary">+ Adicionar aluno</button>
+      </form>
+
+      <div class="report-links">
+        <a href="/relatorios/{{ c.id }}/pdf">↓ PDF da turma</a>
+        <a href="/relatorios/{{ c.id }}/csv">↓ Planilha CSV</a>
+      </div>
+
+      <div class="class-footer-actions">
+        <details class="row-edit">
+          <summary class="btn ghost small">Editar turma</summary>
+          <form method="post" action="/turmas/{{ c.id }}/editar" class="inline-form">
+            <input name="name" value="{{ c.name }}" required>
+            <input name="school" value="{{ c.school or '' }}" placeholder="Escola">
+            <button class="btn secondary small">Salvar</button>
+          </form>
+        </details>
+        <form method="post" action="/turmas/{{ c.id }}/excluir"
+              onsubmit="return confirm('Excluir a turma {{ c.name }}? Isso remove também os alunos e correções dela. Esta ação não pode ser desfeita.');">
+          <button class="btn ghost small" type="submit">🗑 Excluir turma</button>
+        </form>
+      </div>
+
+    </div>
+  {% else %}
+    <div class="empty-panel">
+      <div class="empty-icon">♧</div>
+      <strong>Você ainda não tem turmas</strong>
+      <span>Crie a primeira usando o formulário ao lado.</span>
+    </div>
+  {% endfor %}
+  </div>
+
+</div>
+{% endblock %}

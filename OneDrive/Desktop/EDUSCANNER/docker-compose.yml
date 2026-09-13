@@ -1,0 +1,33 @@
+services:
+  web:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./data:/app/data
+    env_file:
+      - .env
+    environment:
+      # Padrão: SQLite em arquivo, persistido no volume ./data acima.
+      # Para trocar por PostgreSQL, descomente o serviço "db" abaixo,
+      # adicione "psycopg2-binary" ao requirements.txt, e troque esta
+      # linha por:
+      #   DATABASE_URL=postgresql+psycopg2://eduscanner:eduscanner@db:5432/eduscanner
+      - DATABASE_URL=sqlite:////app/data/eduscanner.db
+      - ENV=production
+    restart: unless-stopped
+
+  # --- PostgreSQL (opcional, para produção com mais de um usuário
+  # simultâneo) ---------------------------------------------------
+  # db:
+  #   image: postgres:16-alpine
+  #   environment:
+  #     POSTGRES_DB: eduscanner
+  #     POSTGRES_USER: eduscanner
+  #     POSTGRES_PASSWORD: eduscanner
+  #   volumes:
+  #     - pgdata:/var/lib/postgresql/data
+  #   restart: unless-stopped
+
+# volumes:
+#   pgdata:

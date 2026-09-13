@@ -1,0 +1,207 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Início — EDUSCANNER
+{% endblock %}
+
+{% block page_title %}
+    Início
+{% endblock %}
+
+
+{% block content %}
+
+<div class="dashboard">
+
+    <div class="dashboard-header">
+
+        <div>
+            <span class="eyebrow">
+                PAINEL DO PROFESSOR
+            </span>
+
+            <h1>
+                Bem-vindo ao EDUSCANNER
+            </h1>
+
+            <p>
+                Olá, {{ user.name.split(" ")[0] }}! Organize suas turmas e
+                corrija cartões-resposta de forma rápida.
+            </p>
+        </div>
+
+        <a
+            href="/scanner"
+            class="primary-button"
+        >
+            Abrir scanner
+        </a>
+
+    </div>
+
+
+    <div class="quick-actions">
+
+        <a href="/scanner" class="quick-card">
+            <span class="quick-icon">⌁</span>
+
+            <div>
+                <strong>Scanner</strong>
+                <span>Corrigir cartões</span>
+            </div>
+        </a>
+
+
+        <a href="/turmas" class="quick-card">
+            <span class="quick-icon">♧</span>
+
+            <div>
+                <strong>Turmas</strong>
+                <span>Gerenciar alunos</span>
+            </div>
+        </a>
+
+
+        <a href="/cartoes" class="quick-card">
+            <span class="quick-icon">▤</span>
+
+            <div>
+                <strong>Cartões</strong>
+                <span>Ver seus modelos</span>
+            </div>
+        </a>
+
+
+        <a href="/relatorios" class="quick-card">
+            <span class="quick-icon">▥</span>
+
+            <div>
+                <strong>Relatórios</strong>
+                <span>Resultados das turmas</span>
+            </div>
+        </a>
+
+    </div>
+
+
+    <div class="dashboard-grid">
+
+        <section class="panel">
+
+            <div class="panel-header">
+
+                <div>
+                    <h2>
+                        Resumo
+                    </h2>
+
+                    <span>
+                        Visão geral
+                    </span>
+                </div>
+
+            </div>
+
+
+            <div class="stats-grid">
+
+                <div class="stat-card">
+                    <span>Turmas</span>
+                    <strong>{{ classrooms|length }}</strong>
+                </div>
+
+                <div class="stat-card">
+                    <span>Alunos</span>
+                    <strong>{{ student_total }}</strong>
+                </div>
+
+                <div class="stat-card">
+                    <span>Cartões</span>
+                    <strong>{{ cards|length }}</strong>
+                </div>
+
+                <div class="stat-card">
+                    <span>Correções</span>
+                    <strong>{{ scans|length }}</strong>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <section class="panel">
+
+            <div class="panel-header">
+
+                <div>
+                    <h2>
+                        Últimos escaneamentos
+                    </h2>
+
+                    <span>
+                        Resultados recentes
+                    </span>
+                </div>
+
+            </div>
+
+            <div class="action-list">
+                {% for s in scans %}
+                <a href="/relatorios/{{ s.classroom_id }}/pdf">
+                    <span>{{ "✓" if s.wrong_count == 0 and s.blank_count == 0 else "•" }}</span>
+                    {{ s.student.name if s.student else "Aluno não identificado" }}
+                    — {{ s.correct_count }}/{{ s.correct_count + s.wrong_count + s.blank_count }}
+                </a>
+                {% else %}
+                <span class="empty">Nenhuma correção realizada ainda.</span>
+                {% endfor %}
+            </div>
+
+        </section>
+
+    </div>
+
+
+    <div class="dashboard-grid" style="margin-top: 20px">
+
+        <section class="panel">
+
+            <div class="panel-header">
+                <div>
+                    <h2>Ações rápidas</h2>
+                    <span>Comece por aqui</span>
+                </div>
+            </div>
+
+            <div class="action-list">
+
+                <a href="/turmas">
+                    <span>+</span>
+                    Criar uma turma
+                </a>
+
+                <a href="/cartoes">
+                    <span>+</span>
+                    Criar cartão-resposta
+                </a>
+
+                <a href="/scanner">
+                    <span>→</span>
+                    Iniciar correção
+                </a>
+
+                <a href="/relatorios">
+                    <span>▥</span>
+                    Ver resultados
+                </a>
+
+            </div>
+
+        </section>
+
+    </div>
+
+</div>
+
+{% endblock %}

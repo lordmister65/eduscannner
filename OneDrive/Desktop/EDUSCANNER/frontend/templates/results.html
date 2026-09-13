@@ -1,0 +1,50 @@
+{% extends "base.html" %}{% block title %}Resultados — EDUSCANNER{% endblock %}{% block content %}
+<div class="page-head"><span class="eyebrow">RESULTADOS</span><div class="head-flex"><div><h1>Resultados</h1><p>Consulte, filtre e gere PDFs das correções já realizadas.</p></div><span class="count-badge large">{{ scans|length }} registros</span></div></div>
+
+<div class="panel" style="margin-bottom:20px">
+<form method="get" action="/relatorios" class="filters-row">
+  <label>Turma<select name="classroom_id" onchange="this.form.submit()">
+    <option value="">Todas</option>
+    {% for c in classrooms %}<option value="{{ c.id }}" {% if filters.classroom_id==c.id %}selected{% endif %}>{{ c.name }}</option>{% endfor %}
+  </select></label>
+  <label>Aluno<select name="student_id">
+    <option value="">Todos</option>
+    {% for s in students %}<option value="{{ s.id }}" {% if filters.student_id==s.id %}selected{% endif %}>{{ s.name }}</option>{% endfor %}
+  </select></label>
+  <label>Cartão/prova<select name="card_id">
+    <option value="">Todos</option>
+    {% for c in cards %}<option value="{{ c.id }}" {% if filters.card_id==c.id %}selected{% endif %}>{{ c.name }}</option>{% endfor %}
+  </select></label>
+  <label>De<input type="date" name="date_from" value="{{ filters.date_from }}"></label>
+  <label>Até<input type="date" name="date_to" value="{{ filters.date_to }}"></label>
+  <button class="btn primary">Filtrar</button>
+</form>
+</div>
+
+<div class="panel">
+<div class="table-wrap">
+<table class="data-table">
+  <thead><tr><th>Data</th><th>Aluno</th><th>Turma</th><th>Cartão</th><th>Acertos</th><th>Erros</th><th>Em branco</th><th>%</th><th></th></tr></thead>
+  <tbody>
+  {% for s in scans %}
+    {% set total = s.correct_count + s.wrong_count + s.blank_count %}
+    {% set pct = (100 * s.correct_count / total) | round(1) if total else 0 %}
+    <tr>
+      <td>{{ s.created_at.strftime("%d/%m/%Y %H:%M") }}</td>
+      <td>{{ s.student.name if s.student else "Não identificado" }}</td>
+      <td>{{ s.classroom.name }}</td>
+      <td>{{ s.card.name }}</td>
+      <td>{{ s.correct_count }}</td>
+      <td>{{ s.wrong_count }}</td>
+      <td>{{ s.blank_count }}</td>
+      <td><b>{{ pct }}%</b></td>
+      <td><a class="btn ghost small" href="/relatorios/{{ s.classroom_id }}/pdf">PDF da turma</a></td>
+    </tr>
+  {% else %}
+    <tr><td colspan="9"><div class="empty">Nenhum resultado encontrado para os filtros selecionados.</div></td></tr>
+  {% endfor %}
+  </tbody>
+</table>
+</div>
+</div>
+{% endblock %}

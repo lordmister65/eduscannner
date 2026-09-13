@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    >
+
+    <meta
+        name="description"
+        content="EDUSCANNER — Correção inteligente de cartões-resposta."
+    >
+
+    <meta name="theme-color" content="#0f172a">
+
+    <title>{% block title %}EDUSCANNER{% endblock %}</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', path='css/style.css') }}"
+    >
+
+    {% block head %}{% endblock %}
+</head>
+
+<body>
+
+<div class="app-shell">
+
+    <!-- Overlay utilizado no menu mobile -->
+    <div
+        class="sidebar-overlay"
+        id="sidebarOverlay"
+        aria-hidden="true"
+    ></div>
+
+    <!-- =========================================================
+         SIDEBAR
+         ========================================================= -->
+
+    <aside
+        class="sidebar"
+        id="sidebar"
+        aria-label="Navegação principal"
+    >
+
+        <div class="sidebar-header">
+
+            <a
+                href="/"
+                class="brand"
+                aria-label="EDUSCANNER - Página inicial"
+            >
+                <div class="brand-mark">
+                    E
+                </div>
+
+                <div class="brand-text">
+                    <strong>EDUSCANNER</strong>
+                    <span>Correção inteligente</span>
+                </div>
+            </a>
+
+            <button
+                type="button"
+                class="sidebar-close"
+                id="sidebarClose"
+                aria-label="Fechar menu"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+        <!-- Navegação -->
+
+        <nav class="sidebar-nav">
+
+            <span class="nav-section-title">
+                PRINCIPAL
+            </span>
+
+            <a
+                href="/dashboard"
+                class="nav-item {% if request.path.startswith('/dashboard') %}active{% endif %}"
+            >
+                <span class="nav-icon">⌂</span>
+                <span>Início</span>
+            </a>
+
+            <a
+                href="/scanner"
+                class="nav-item {% if request.path.startswith('/scanner') %}active{% endif %}"
+            >
+                <span class="nav-icon">⌁</span>
+                <span>Scanner</span>
+            </a>
+
+
+            <span class="nav-section-title">
+                ORGANIZAÇÃO
+            </span>
+
+            <a
+                href="/turmas"
+                class="nav-item {% if request.path.startswith('/turmas') %}active{% endif %}"
+            >
+                <span class="nav-icon">♧</span>
+                <span>Turmas</span>
+            </a>
+
+            <a
+                href="/cartoes"
+                class="nav-item {% if request.path.startswith('/cartoes') %}active{% endif %}"
+            >
+                <span class="nav-icon">▤</span>
+                <span>Cartões-resposta</span>
+            </a>
+
+
+            <span class="nav-section-title">
+                RESULTADOS
+            </span>
+
+            <a
+                href="/relatorios"
+                class="nav-item {% if request.path.startswith('/relatorios') %}active{% endif %}"
+            >
+                <span class="nav-icon">▥</span>
+                <span>Relatórios</span>
+            </a>
+
+        </nav>
+
+
+        <!-- Rodapé da sidebar -->
+
+        <div class="sidebar-footer">
+
+            <div class="user-mini">
+
+                <div class="user-avatar">
+                    {{ (user.name[:1]|upper) if user is defined and user else "P" }}
+                </div>
+
+                <div class="user-info">
+                    <strong>{{ user.name if user is defined and user else "Professor" }}</strong>
+                    <span>{{ user.email if user is defined and user else "Conta ativa" }}</span>
+                </div>
+
+                <a
+                    href="/logout"
+                    class="user-menu-button"
+                    aria-label="Sair"
+                    title="Sair"
+                >
+                    ⏻
+                </a>
+
+            </div>
+
+        </div>
+
+    </aside>
+
+
+    <!-- =========================================================
+         ÁREA PRINCIPAL
+         ========================================================= -->
+
+    <main class="main-content">
+
+        <!-- Header -->
+
+        <header class="topbar">
+
+            <button
+                type="button"
+                class="mobile-menu-button"
+                id="sidebarOpen"
+                aria-label="Abrir menu"
+            >
+                ☰
+            </button>
+
+
+            <div class="topbar-title">
+                {% block page_title %}
+                    EDUSCANNER
+                {% endblock %}
+            </div>
+
+
+            <div class="topbar-actions">
+
+                <button
+                    type="button"
+                    class="icon-button"
+                    aria-label="Notificações"
+                >
+                    ♢
+                </button>
+
+                <div class="topbar-divider"></div>
+
+                <div class="topbar-user">
+                    <div class="user-avatar small">
+                        {{ (user.name[:1]|upper) if user is defined and user else "P" }}
+                    </div>
+
+                    <div class="topbar-user-info">
+                        <strong>{{ (user.name.split(" ")[0]) if user is defined and user else "Professor" }}</strong>
+                        <span>Conta ativa</span>
+                    </div>
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- Conteúdo específico da página -->
+
+        <section class="page-content">
+
+            {% block content %}
+            {% endblock %}
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<!-- =============================================================
+     JAVASCRIPT
+     ============================================================= -->
+
+<script
+    src="{{ url_for('static', path='js/app.js') }}"
+    defer
+></script>
+
+{% block scripts %}{% endblock %}
+
+</body>
+</html>
