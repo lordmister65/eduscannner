@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>EduScanner · CEPI-JBR</title>
+<style>
+:root{font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;--bg:#f5f6f8;--surface:#fff;--ink:#18202d;--muted:#697386;--line:#e5e8ed;--nav:#171a20;--nav2:#22262e;--accent:#c69a63;--ok:#198754;--danger:#c53d3d}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink)}button,input,select,textarea{font:inherit}.hidden{display:none}.muted{color:var(--muted);line-height:1.5}.status{display:none;padding:11px 13px;border-radius:10px;margin-top:12px;font-size:14px;font-weight:650}.status.error{background:#fff1f1;color:#a52828;border:1px solid #ffd7d7}.status.ok{background:#eefaf1;color:#166534;border:1px solid #ccefd5}.btn{border:0;border-radius:10px;padding:11px 14px;font-weight:750;cursor:pointer;background:var(--nav);color:#fff;transition:.15s}.btn:hover:not(:disabled){opacity:.9}.btn.secondary{background:#f3f4f6;color:#273142;border:1px solid #e1e4e8}.btn:disabled{opacity:.45;cursor:not-allowed}.field{margin-top:14px}.field label{display:block;font-size:13px;font-weight:750;margin-bottom:6px}input[type=file]{display:none}input:not([type=file]),select,textarea{width:100%!important;border:1px solid #d7dce2!important;border-radius:10px!important;padding:11px 12px!important;background:#fff;outline:none;font-size:15px!important}input:focus,select:focus,textarea:focus{border-color:#9d7b52!important;box-shadow:0 0 0 3px rgba(198,154,99,.14)}textarea{min-height:88px;resize:vertical}.row{display:grid;grid-template-columns:1fr 1fr;gap:14px}.guide{background:#f8f9fb;border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:10px;padding:12px 14px;line-height:1.55;color:#4b5563;margin:14px 0}.brand{display:flex;align-items:center;gap:12px}.brand img{width:58px;height:58px;object-fit:contain;border-radius:50%;background:#111}.brand h1{font-size:22px;margin:0}.brand p{margin:2px 0 0}.login-wrap{min-height:100vh;display:grid;place-items:center;padding:20px;background:radial-gradient(circle at 20% 10%,#fff 0,#f5f6f8 42%,#eceff3 100%)}.login-card{width:min(420px,100%);background:#fff;border:1px solid var(--line);border-radius:20px;padding:28px;box-shadow:0 20px 60px rgba(24,32,45,.10)}.login-card .btn{width:100%;margin-top:16px;padding:13px}.shell{display:grid;grid-template-columns:250px minmax(0,1fr);min-height:100vh}.sidebar{background:var(--nav);color:#fff;padding:18px 14px;position:sticky;top:0;height:100vh;display:flex;flex-direction:column}.sidebar .brand{padding:6px 6px 20px;border-bottom:1px solid #30343d}.sidebar .brand img{width:48px;height:48px}.sidebar .brand h1{font-size:18px}.sidebar .brand p{font-size:11px;color:#adb5c2}.nav{display:grid;gap:5px;padding-top:18px}.nav button{width:100%;border:0;background:transparent;color:#c7ced8;text-align:left;padding:11px 12px;border-radius:99px;cursor:pointer;font-weight:650}.nav button:hover,.nav button.active{background:var(--nav2);color:#fff}.nav button.active{box-shadow:inset 3px 0 0 var(--accent)}.side-user{margin-top:auto;border-top:1px solid #30343d;padding:16px 6px 2px}.side-user b{display:block;font-size:14px}.side-user .muted{font-size:12px;color:#9ca5b3;margin:3px 0 10px}.side-user .btn{width:100%;background:#2a2e36;border-color:#3a3f49;color:#fff}.main{min-width:0}.topbar{height:70px;background:#fff;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 28px;position:sticky;top:0;z-index:9}.topbar h2{margin:0;font-size:20px}.topbar .muted{font-size:13px;margin:2px 0 0}.mobile-menu{display:none}.content{max-width:1180px;padding:26px 28px 50px}.view{display:none}.view.active{display:block}.page-head{display:flex;align-items:flex-end;justify-content:space-between;gap:15px;margin-bottom:18px}.page-head h1{font-size:27px;margin:0 0 4px}.page-head p{margin:0}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}.card{background:#fff;border:1px solid var(--line);border-radius:15px;padding:20px;margin-bottom:18px}.card h2{font-size:18px;margin:0 0 5px}.card>.btn,.field>.btn{width:100%;margin-top:9px}.kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:18px}.kpi{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px}.kpi span{display:block;color:var(--muted);font-size:12px;font-weight:700;text-transform:uppercase}.kpi strong{display:block;font-size:25px;margin-top:5px}.tableWrap{overflow:auto;border:1px solid var(--line);border-radius:11px;margin-top:12px}table{width:100%;border-collapse:collapse;font-size:13px;white-space:nowrap}th,td{padding:11px 12px;border-bottom:1px solid #eceff2;text-align:left}th{background:#f7f8fa;color:#566070;font-size:11px;text-transform:uppercase;letter-spacing:.04em}tbody tr:last-child td{border-bottom:0}.tableWrap .btn{width:auto!important;padding:7px 9px!important;margin:2px!important;font-size:12px}.summary{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0}.pill{padding:7px 11px;border-radius:999px;background:#f0f2f4;border:1px solid #e3e6e9;font-weight:750;font-size:13px}.questions{display:grid;grid-template-columns:repeat(8,1fr);gap:8px}.q{padding:9px 6px;border:1px solid #e0e5ea;border-radius:10px;text-align:center;background:#fff;min-width:0}.q b{display:block;font-size:10px;color:#687482}.q .ans{font-size:18px;font-weight:800}.q small{font-size:9px}.q.mult{background:#fff8eb}.q.blank{background:#f4f5f6}.q.wrong{outline:2px solid #ef4444;outline-offset:-1px}.q.correct{outline:2px solid #22a653;outline-offset:-1px}#preview{display:none;width:100%;max-height:58vh;object-fit:contain;border-radius:12px;background:#111;margin-top:14px}.scanner-focus{border-top:3px solid var(--accent)}code{background:#f1f3f5;padding:2px 5px;border-radius:5px}
+@media(max-width:800px){.shell{display:block}.sidebar{height:auto;position:sticky;top:0;z-index:20;padding:10px 12px;display:block}.sidebar>.brand,.sidebar>.nav,.sidebar>.side-user{display:none}.mobile-menu{display:flex;align-items:center;justify-content:space-between}.mobile-menu .brand{display:flex;border:0;padding:0}.mobile-menu .brand img{width:38px;height:38px}.mobile-menu .brand h1{font-size:16px}.mobile-menu button{background:#2a2e36;color:#fff;border:0;border-radius:9px;padding:9px 12px}.sidebar.open>.nav,.sidebar.open>.side-user{display:grid}.sidebar.open>.side-user{display:block}.sidebar.open .nav{padding-top:12px}.topbar{display:none}.content{padding:18px 12px 36px}.grid2,.row,.kpis{grid-template-columns:1fr}.questions{grid-template-columns:repeat(4,1fr)}.page-head h1{font-size:23px}}
+</style>
+</head>
+<body>
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-app.js";
+  import { getAuth, GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup, signOut } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-auth.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyBsCkE6TKtXFWS3pxMO4tVtmCAd8fYU8fo",
+    authDomain: "eduscan-69e80.firebaseapp.com",
+    projectId: "eduscan-69e80",
+    storageBucket: "eduscan-69e80.firebasestorage.app",
+    messagingSenderId: "208921082223",
+    appId: "1:208921082223:web:373b6c56dc98474400509a"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  window.firebaseAuth = getAuth(app);
+  window.GoogleAuthProvider = GoogleAuthProvider;
+  window.signInWithEmailAndPassword = signInWithEmailAndPassword;
+  window.signInWithPopup = signInWithPopup;
+  window.signOut = signOut;
+</script>
+
+<div id="loginScreen" class="login-wrap"><div class="login-card"><div class="brand"><img src="/static/logo-escola.png" alt="Logo CEPI-JBR"><div><h1>EduScanner</h1><p class="muted">CEPI João Barbosa Reis</p></div></div><p class="muted">Acesse o painel para corrigir provas e acompanhar suas turmas.</p><div class="field"><label>E-mail</label><input id="loginUser" type="email" autocomplete="username" placeholder="professor@escola.edu.br"></div><div class="field"><label>Senha</label><input id="loginPass" type="password" autocomplete="current-password" placeholder="Sua senha"></div><button id="loginBtn" class="btn">Entrar</button><div style="display:flex;align-items:center;gap:10px;margin:16px 0;color:var(--muted);font-size:12px"><span style="height:1px;background:var(--line);flex:1"></span>ou<span style="height:1px;background:var(--line);flex:1"></span></div><button id="googleLoginBtn" class="btn secondary" style="width:100%;margin-top:0">Entrar com o Google</button><div id="loginStatus" class="status"></div></div></div>
+<div id="appScreen" style="display:none"><div class="shell"><aside class="sidebar" id="sidebar"><div class="mobile-menu"><div class="brand"><img src="/static/logo-escola.png" alt="Logo"><div><h1>EduScanner</h1></div></div><button id="menuToggle" type="button">☰ Menu</button></div><div class="brand"><img src="/static/logo-escola.png" alt="Logo CEPI-JBR"><div><h1>EduScanner</h1><p>CEPI João Barbosa Reis</p></div></div><nav class="nav"><button class="navBtn active" data-view="home">⌂ &nbsp;Início</button><button class="navBtn" data-view="scanner">▣ &nbsp;Corrigir prova</button><button class="navBtn" data-view="reports">▥ &nbsp;Relatórios</button><button class="navBtn adminNav" data-view="students">♙ &nbsp;Alunos e turmas</button><button class="navBtn adminNav" data-view="users">♟ &nbsp;Professores</button></nav><div class="side-user"><b id="currentUserName">Usuário</b><div class="muted" id="currentUserType"></div><button id="logoutBtn" class="btn secondary">Sair</button></div></aside><main class="main"><header class="topbar"><div><h2 id="topTitle">Visão geral</h2><p class="muted">Sistema de correção e gestão de resultados</p></div><span class="pill">CEPI-JBR</span></header><div class="content">
+<section class="view active" data-view-panel="home"><div class="page-head"><div><h1>Visão geral</h1><p class="muted">Acesso rápido às principais funções do EduScanner.</p></div></div><div class="kpis"><div class="kpi"><span>Fluxo</span><strong>1 → 2 → 3</strong><div class="muted">Turma, aluno e correção</div></div><div class="kpi"><span>Cartão</span><strong>40</strong><div class="muted">Leitura padrão do scanner</div></div><div class="kpi"><span>Provas</span><strong>20 / 30 / 40</strong><div class="muted">Questões consideradas</div></div></div><div class="grid2"><div class="card"><h2>Corrigir uma prova</h2><p class="muted">Selecione turma e aluno, fotografe o cartão e salve a nota.</p><button class="btn quickNav" data-target="scanner">Abrir correção</button></div><div class="card"><h2>Consultar resultados</h2><p class="muted">Veja notas salvas, gere PDFs ou exclua um lançamento.</p><button class="btn secondary quickNav" data-target="reports">Abrir relatórios</button></div></div></section>
+<section class="view" data-view-panel="scanner"><div class="page-head"><div><h1>Corrigir prova</h1><p class="muted">Identifique o aluno, configure o gabarito e fotografe o cartão.</p></div></div><div class="grid2"><div class="card"><h2>1. Identificação</h2><div class="field"><label for="examName">Prova / bloco</label><input id="examName" placeholder="Ex.: Bloco 1"></div><div class="row"><div class="field"><label for="classSelect">Turma</label><select id="classSelect"><option value="">Selecione...</option></select></div><div class="field"><label for="studentSelect">Aluno</label><select id="studentSelect" disabled><option value="">Selecione a turma...</option></select></div></div></div><div class="card"><h2>2. Configuração</h2><div class="field"><label for="questionCount">Quantidade de questões</label><select id="questionCount"><option value="20">20 questões</option><option value="30">30 questões</option><option value="40" selected>40 questões</option></select></div><div class="field"><label for="key">Gabarito oficial</label><textarea id="key" placeholder="Ex.: D,A,A,A,B,..."></textarea></div><div id="keyInfo" class="status" style="display:block;background:#f3f4f6;color:#374151">Gabarito: 0 respostas.</div></div></div><div class="card scanner-focus"><h2>3. Scanner</h2><p class="muted">Folha plana, foto de cima e cartão ocupando boa parte da imagem.</p><div class="guide"><b>Dica:</b> pode usar caneta vermelha, azul ou preta. Evite inclinação forte e sombras intensas.</div><label class="btn" for="photo">📷 Tirar foto do cartão</label><input id="photo" type="file" accept="image/*" capture="environment"><img id="preview" alt="Prévia"><button id="scan" class="btn" disabled style="width:100%;margin-top:10px">Ler e corrigir respostas</button><div id="status" class="status"></div></div><div id="resultCard" class="card" style="display:none"><h2>Resultado da correção</h2><div id="summary" class="summary"></div><div id="questions" class="questions"></div><button id="saveResult" class="btn" disabled style="width:100%;margin-top:14px">💾 Salvar resultado do aluno</button><button id="exportSavedPdf" class="btn secondary" style="display:none;width:100%;margin-top:8px">📄 Exportar PDF deste resultado</button><div id="saveStatus" class="status"></div></div></section>
+<section class="view" data-view-panel="reports"><div class="page-head"><div><h1>Relatórios</h1><p class="muted">Resultados salvos da turma selecionada.</p></div></div><div class="card"><div class="row"><div class="field"><label>Turma</label><p class="muted">A turma selecionada na correção também é usada aqui.</p></div><div style="align-self:end"><button id="loadReport" class="btn secondary" style="width:100%">Atualizar relatório</button></div></div><div id="reportSummary" class="summary"></div><div class="tableWrap"><table><thead><tr><th>Aluno</th><th>Matrícula</th><th>Prova</th><th>Acertos</th><th>Erros</th><th>Nota</th><th>Ações</th></tr></thead><tbody id="reportBody"></tbody></table></div></div></section>
+<section class="view" data-view-panel="students"><div class="page-head"><div><h1>Alunos e turmas</h1><p class="muted">Importe a planilha institucional para atualizar os cadastros.</p></div></div><div id="adminImportCard" class="card"><h2>Importar alunos</h2><p class="muted">Arquivo .xlsx com as colunas Nome do aluno, Turma e Matrícula.</p><div class="field"><label class="btn secondary" for="studentsFile">📄 Selecionar planilha</label><input id="studentsFile" type="file" accept=".xlsx,.xlsm"><button id="importStudents" class="btn" disabled>Importar planilha</button><div id="importStatus" class="status"></div></div></div></section>
+<section class="view" data-view-panel="users"><div class="page-head"><div><h1>Professores</h1><p class="muted">Cadastre usuários e determine quais turmas cada professor pode acessar.</p></div></div><div id="adminUsersCard" class="card" style="display:none"><div class="row"><div class="field"><label>Nome</label><input id="userName" placeholder="Professor Gabriel"></div><div class="field"><label>Login</label><input id="userLogin" placeholder="gabriel"></div></div><div class="row"><div class="field"><label>Senha</label><input id="userPass" type="password" placeholder="mínimo 6 caracteres"></div><div class="field"><label>Perfil</label><select id="userType"><option value="professor">Professor</option><option value="admin">Administrador</option></select></div></div><div class="field"><label>Turmas permitidas</label><div id="userClasses" class="guide"></div></div><button id="createUser" class="btn" style="width:100%">Criar usuário</button><div id="userStatus" class="status"></div><div class="tableWrap"><table><thead><tr><th>Nome</th><th>Login</th><th>Perfil</th><th>Turmas</th><th>Status</th><th>Ações</th></tr></thead><tbody id="usersBody"></tbody></table></div></div><div id="googleWhitelistCard" class="card" style="display:none"><h2>Acesso com Google</h2><p class="muted">Somente os e-mails abaixo podem criar/vincular acesso usando o botão “Entrar com o Google”.</p><div class="row"><div class="field"><label>E-mail autorizado</label><input id="allowedGoogleEmail" type="email" placeholder="professor@escola.edu.br"></div><div class="field" style="display:flex;align-items:end"><button id="addAllowedGoogleEmail" class="btn" style="width:100%">Autorizar e-mail</button></div></div><div id="allowedEmailStatus" class="status"></div><div class="tableWrap"><table><thead><tr><th>E-mail</th><th>Ação</th></tr></thead><tbody id="allowedEmailsBody"></tbody></table></div></div></section>
+</div></main></div></div>
+<script type="module">
+const viewTitles={home:'Visão geral',scanner:'Corrigir prova',reports:'Relatórios',students:'Alunos e turmas',users:'Professores'};
+function openView(name){document.querySelectorAll('[data-view-panel]').forEach(x=>x.classList.toggle('active',x.dataset.viewPanel===name));document.querySelectorAll('.navBtn').forEach(x=>x.classList.toggle('active',x.dataset.view===name));const t=document.querySelector('#topTitle');if(t)t.textContent=viewTitles[name]||'EduScanner';document.querySelector('#sidebar')?.classList.remove('open');window.scrollTo({top:0,behavior:'smooth'});}
+document.querySelectorAll('.navBtn').forEach(b=>b.addEventListener('click',()=>openView(b.dataset.view)));
+document.querySelectorAll('.quickNav').forEach(b=>b.addEventListener('click',()=>openView(b.dataset.target)));
+document.querySelector('#menuToggle')?.addEventListener('click',()=>document.querySelector('#sidebar')?.classList.toggle('open'));
+
+let currentUser=null;
+let lastSavedResultId=null;
+const loginScreen=document.querySelector('#loginScreen'), appScreen=document.querySelector('#appScreen'), loginBtn=document.querySelector('#loginBtn'), googleLoginBtn=document.querySelector('#googleLoginBtn'), loginStatus=document.querySelector('#loginStatus');
+async function apiFetch(url,opts={}){const r=await fetch(url,opts);if(r.status===401){showLogin();throw new Error('Sessão encerrada. Entre novamente.')}return r;}
+function showLogin(){currentUser=null;appScreen.style.display='none';loginScreen.style.display='block';}
+async function startApp(){
+  try{const r=await fetch('/api/auth/me');if(!r.ok){showLogin();return;}currentUser=await r.json();loginScreen.style.display='none';appScreen.style.display='block';document.querySelector('#currentUserName').textContent=currentUser.nome;document.querySelector('#currentUserType').textContent=currentUser.tipo==='admin'?'Administrador':'Professor';document.querySelector('#adminImportCard').style.display=currentUser.tipo==='admin'?'block':'none';document.querySelector('#adminUsersCard').style.display=currentUser.tipo==='admin'?'block':'none';document.querySelector('#googleWhitelistCard').style.display=currentUser.tipo==='admin'?'block':'none';document.querySelectorAll('.adminNav').forEach(x=>x.style.display=currentUser.tipo==='admin'?'block':'none');await loadClasses();if(currentUser.tipo==='admin')await loadUsers();}catch(e){showLogin();}
+}
+async function finishFirebaseLogin(credential){const idToken=await credential.user.getIdToken();const r=await fetch('/api/auth/firebase',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({id_token:idToken})});const d=await r.json();if(!r.ok){await window.signOut(window.firebaseAuth);throw new Error(d.detail||'Acesso não autorizado.');}loginStatus.style.display='none';await startApp();}
+loginBtn.addEventListener('click',async()=>{loginBtn.disabled=true;try{const email=document.querySelector('#loginUser').value.trim().toLowerCase();const password=document.querySelector('#loginPass').value;const credential=await window.signInWithEmailAndPassword(window.firebaseAuth,email,password);await finishFirebaseLogin(credential);}catch(e){loginStatus.className='status error';loginStatus.textContent=e.message?.includes('Firebase:')?'E-mail ou senha inválidos.':e.message;loginStatus.style.display='block';}finally{loginBtn.disabled=false;}});
+async function finishFirebaseLoginToken(idToken){const r=await fetch('/api/auth/firebase',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({id_token:idToken})});const d=await r.json();if(!r.ok){try{await window.signOut(window.firebaseAuth);}catch(_){}throw new Error(d.detail||'Acesso não autorizado.');}loginStatus.style.display='none';await startApp();}
+googleLoginBtn.addEventListener('click',async()=>{googleLoginBtn.disabled=true;try{if(window.Capacitor&&window.Capacitor.isNativePlatform()){const{FirebaseAuthentication}=window.Capacitor.Plugins;await FirebaseAuthentication.signInWithGoogle();const{token}=await FirebaseAuthentication.getIdToken();await finishFirebaseLoginToken(token);}else{const provider=new window.GoogleAuthProvider();provider.setCustomParameters({prompt:'select_account'});await finishFirebaseLogin(await window.signInWithPopup(window.firebaseAuth,provider));}}catch(e){if(window.firebaseAuth?.currentUser)await window.signOut(window.firebaseAuth);loginStatus.className='status error';loginStatus.textContent=e.message?.includes('popup-closed')?'Login com Google cancelado.':e.message;loginStatus.style.display='block';}finally{googleLoginBtn.disabled=false;}});
+document.querySelector('#loginPass').addEventListener('keydown',e=>{if(e.key==='Enter')loginBtn.click();});
+document.querySelector('#logoutBtn').addEventListener('click',async()=>{await fetch('/api/auth/logout',{method:'POST'});try{if(window.firebaseAuth)await window.signOut(window.firebaseAuth);}catch(_){}showLogin();});
+const photo=document.querySelector('#photo'), preview=document.querySelector('#preview'), scanBtn=document.querySelector('#scan'), statusBox=document.querySelector('#status');
+const resultCard=document.querySelector('#resultCard'), questionsBox=document.querySelector('#questions'), summary=document.querySelector('#summary'), keyBox=document.querySelector('#key'), keyInfo=document.querySelector('#keyInfo'), questionCountBox=document.querySelector('#questionCount');
+let file=null, lastResult=null;
+const classSelect=document.querySelector('#classSelect'), studentSelect=document.querySelector('#studentSelect'), examName=document.querySelector('#examName'), saveResultBtn=document.querySelector('#saveResult'), saveStatus=document.querySelector('#saveStatus');
+const studentsFile=document.querySelector('#studentsFile'), importStudents=document.querySelector('#importStudents'), importStatus=document.querySelector('#importStatus'), loadReport=document.querySelector('#loadReport'), reportBody=document.querySelector('#reportBody'), reportSummary=document.querySelector('#reportSummary');
+
+const KEY_STORAGE_PREFIX='eduscanner_gabarito_';
+const COUNT_STORAGE='eduscanner_quantidade_questoes';
+
+function parseKey(){
+  return keyBox.value.toUpperCase().replace(/[^A-E]/g,'').split('');
+}
+
+function selectedCount(){
+  return Number(questionCountBox.value);
+}
+
+function storageKey(){
+  return KEY_STORAGE_PREFIX + selectedCount();
+}
+
+function updateKeyState(){
+  const key=parseKey();
+  const count=selectedCount();
+  localStorage.setItem(COUNT_STORAGE,String(count));
+  localStorage.setItem(storageKey(),key.join(''));
+  keyInfo.style.display='block';
+  if(key.length===count){
+    keyInfo.className='status ok';
+    keyInfo.textContent=`✓ Gabarito válido: ${count}/${count} respostas. As questões ${count+1}–40 serão ignoradas.`;
+  } else {
+    keyInfo.className='status error';
+    keyInfo.textContent=`Gabarito incompleto: ${key.length}/${count} respostas. Informe exatamente ${count} alternativas (A–E).`;
+  }
+  scanBtn.disabled=!file || key.length!==count;
+  if(lastResult && key.length===count) render(lastResult);
+}
+
+const savedCount=localStorage.getItem(COUNT_STORAGE);
+if(['20','30','40'].includes(savedCount)) questionCountBox.value=savedCount;
+keyBox.value=localStorage.getItem(storageKey())||'';
+updateKeyState();
+
+photo.addEventListener('change',()=>{
+  file=photo.files?.[0]||null;
+  if(!file)return;
+  if(preview.src && preview.src.startsWith('blob:')) URL.revokeObjectURL(preview.src);
+  preview.src=URL.createObjectURL(file);
+  preview.style.display='block';
+  statusBox.style.display='none';
+  resultCard.style.display='none';
+  lastResult=null;
+  updateKeyState();
+});
+
+function render(data){
+  lastResult=data;
+  const key=parseKey();
+  const count=selectedCount();
+  if(key.length!==count){
+    statusBox.className='status error';
+    statusBox.textContent=`Não foi possível corrigir: o gabarito tem ${key.length}/${count} respostas.`;
+    statusBox.style.display='block';
+    resultCard.style.display='none';
+    return;
+  }
+
+  let correct=0, wrong=0, mult=0, blank=0;
+  questionsBox.innerHTML='';
+  data.questions.filter(q=>q.number<=count).forEach(q=>{
+    const el=document.createElement('div');
+    el.className='q';
+    const expected=key[q.number-1];
+    let label=q.answer || (q.status==='MULT'?'ANULADA':'—');
+
+    if(q.status==='MULT'){el.classList.add('mult'); mult++;}
+    if(q.status==='BLANK'){el.classList.add('blank'); blank++;}
+
+    const isCorrect=q.status==='OK' && q.answer===expected;
+    if(isCorrect){
+      correct++;
+      el.classList.add('correct');
+    }else{
+      wrong++;
+      el.classList.add('wrong');
+    }
+
+    const detail=isCorrect ? '✓ CERTA' : `✗ ERRADA · correta: ${expected}`;
+    el.innerHTML=`<b>Questão ${q.number}</b><span class="ans">${label}</span><small style="display:block;margin-top:4px;font-weight:700">${detail}</small>`;
+    questionsBox.appendChild(el);
+  });
+
+  summary.innerHTML='';
+  const pills=[
+    `Acertos: ${correct}`,
+    `Erros: ${wrong}`,
+    `Anuladas: ${mult}`,
+    `Em branco: ${blank}`,
+    `Nota: ${(correct/count*10).toFixed(1)}`
+  ];
+  pills.forEach(t=>{
+    const p=document.createElement('span');
+    p.className='pill';
+    p.textContent=t;
+    summary.appendChild(p);
+  });
+  resultCard.style.display='block';
+  saveResultBtn.disabled=!studentSelect.value;
+  saveStatus.style.display='none'; lastSavedResultId=null; document.querySelector('#exportSavedPdf').style.display='none';
+  resultCard.scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+keyBox.addEventListener('input',updateKeyState);
+questionCountBox.addEventListener('change',()=>{
+  keyBox.value=localStorage.getItem(storageKey())||'';
+  resultCard.style.display='none';
+  lastResult=null;
+  updateKeyState();
+});
+
+scanBtn.addEventListener('click',async()=>{
+  const key=parseKey();
+  const count=selectedCount();
+  if(!file)return;
+  if(key.length!==count){
+    statusBox.className='status error';
+    statusBox.textContent=`Informe o gabarito completo antes de corrigir (${key.length}/${count}).`;
+    statusBox.style.display='block';
+    return;
+  }
+
+  scanBtn.disabled=true;
+  scanBtn.textContent='Lendo...';
+  statusBox.style.display='none';
+  resultCard.style.display='none';
+  const form=new FormData();
+  form.append('file',file);
+  try{
+    const res=await apiFetch('/api/scan',{method:'POST',body:form});
+    const data=await res.json();
+    if(!res.ok)throw new Error(data.detail||'Erro na leitura');
+    statusBox.className='status ok';
+    statusBox.textContent='Cartão lido e corrigido com sucesso.';
+    statusBox.style.display='block';
+    render(data);
+  }catch(e){
+    statusBox.className='status error';
+    statusBox.textContent=e.message;
+    statusBox.style.display='block';
+    resultCard.style.display='none';
+  }finally{
+    scanBtn.textContent='Ler e corrigir respostas';
+    updateKeyState();
+  }
+});
+
+async function loadClasses(){
+  const res=await apiFetch('/api/turmas'); const items=await res.json();
+  classSelect.innerHTML='<option value="">Selecione...</option>'+items.map(t=>`<option value="${t.id}">${t.nome} (${t.total_alunos})</option>`).join('');
+}
+async function loadStudents(){
+  const id=classSelect.value; studentSelect.disabled=!id; saveResultBtn.disabled=true;
+  if(!id){studentSelect.innerHTML='<option value="">Selecione a turma...</option>';return;}
+  const res=await apiFetch(`/api/turmas/${id}/alunos`); const items=await res.json();
+  studentSelect.innerHTML='<option value="">Selecione o aluno...</option>'+items.map(a=>`<option value="${a.id}">${a.nome} · ${a.matricula}</option>`).join('');
+}
+classSelect.addEventListener('change',()=>{loadStudents(); reportBody.innerHTML=''; reportSummary.innerHTML='';});
+studentSelect.addEventListener('change',()=>{saveResultBtn.disabled=!studentSelect.value || !lastResult;});
+studentsFile.addEventListener('change',()=>{importStudents.disabled=!studentsFile.files?.[0];});
+importStudents.addEventListener('click',async()=>{
+  const f=studentsFile.files?.[0]; if(!f)return; importStudents.disabled=true; importStudents.textContent='Importando...';
+  const fd=new FormData(); fd.append('file',f);
+  try{const r=await apiFetch('/api/alunos/importar',{method:'POST',body:fd}); const d=await r.json(); if(!r.ok)throw new Error(d.detail||'Erro na importação'); importStatus.className='status ok'; importStatus.textContent=`Importação concluída: ${d.criados} novos, ${d.atualizados} atualizados, ${d.ignorados} ignorados.`; importStatus.style.display='block'; await loadClasses();}
+  catch(e){importStatus.className='status error'; importStatus.textContent=e.message; importStatus.style.display='block';}
+  finally{importStudents.textContent='Importar planilha'; importStudents.disabled=false;}
+});
+saveResultBtn.addEventListener('click',async()=>{
+  if(!lastResult||!studentSelect.value)return;
+  const key=parseKey(), count=selectedCount();
+  const body={aluno_id:Number(studentSelect.value),prova_nome:examName.value.trim()||'Prova',quantidade_questoes:count,gabarito:key,questions:lastResult.questions};
+  saveResultBtn.disabled=true; saveResultBtn.textContent='Salvando...';
+  try{const r=await apiFetch('/api/resultados',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)}); const d=await r.json(); if(!r.ok)throw new Error(d.detail||'Erro ao salvar'); saveStatus.className='status ok'; saveStatus.textContent=`Resultado salvo. Nota: ${Number(d.nota).toFixed(2)} · ${d.acertos} acertos.`; saveStatus.style.display='block'; lastSavedResultId=d.id; document.querySelector('#exportSavedPdf').style.display='block'; await showReport();}
+  catch(e){saveStatus.className='status error';saveStatus.textContent=e.message;saveStatus.style.display='block';}
+  finally{saveResultBtn.textContent='💾 Salvar resultado do aluno';saveResultBtn.disabled=false;}
+});
+async function showReport(){
+  if(!classSelect.value){reportBody.innerHTML='<tr><td colspan="6">Selecione uma turma.</td></tr>';return;}
+  const r=await apiFetch(`/api/turmas/${classSelect.value}/relatorio`); const d=await r.json();
+  const rows=d.resultados||[]; reportBody.innerHTML=rows.length?rows.map(x=>`<tr><td>${x.aluno}</td><td>${x.matricula}</td><td>${x.prova}</td><td>${x.acertos}/${x.questoes}</td><td>${x.erros}</td><td>${Number(x.nota).toFixed(2)}</td><td><button class="reportPdf btn secondary" data-id="${x.id}" style="width:auto;padding:7px 9px;margin:2px">PDF</button><button class="reportDelete btn secondary" data-id="${x.id}" data-name="${x.aluno}" style="width:auto;padding:7px 9px;margin:2px">Excluir</button></td></tr>`).join(''):'<tr><td colspan="7">Nenhum resultado salvo.</td></tr>';
+  reportBody.querySelectorAll('.reportPdf').forEach(b=>b.addEventListener('click',()=>window.open(`/api/resultados/${b.dataset.id}/pdf`,'_blank')));
+  reportBody.querySelectorAll('.reportDelete').forEach(b=>b.addEventListener('click',async()=>{if(!confirm(`Excluir o resultado de ${b.dataset.name}? Esta ação não pode ser desfeita.`))return;const rr=await apiFetch(`/api/resultados/${b.dataset.id}`,{method:'DELETE'});const dd=await rr.json();if(!rr.ok){alert(dd.detail||'Erro ao excluir');return;}await showReport();}));
+  const avg=rows.length?rows.reduce((a,x)=>a+Number(x.nota),0)/rows.length:0; reportSummary.innerHTML=`<span class="pill">Resultados: ${rows.length}</span><span class="pill">Média: ${avg.toFixed(2)}</span>`;
+}
+loadReport.addEventListener('click',showReport);
+document.querySelector('#exportSavedPdf').addEventListener('click',()=>{if(lastSavedResultId)window.open(`/api/resultados/${lastSavedResultId}/pdf`,'_blank');});
+
+async function loadUsers(){
+  if(!currentUser||currentUser.tipo!=='admin')return;
+  const tr=await apiFetch('/api/turmas'); const turmas=await tr.json();
+  document.querySelector('#userClasses').innerHTML=turmas.length?turmas.map(t=>`<label style="display:inline-block;margin:6px 14px 6px 0"><input type="checkbox" class="userClass" value="${t.id}"> ${t.nome}</label>`).join(''):'Importe alunos para criar turmas.';
+  const ur=await apiFetch('/api/admin/usuarios');const users=await ur.json();
+  const names=Object.fromEntries(turmas.map(t=>[t.id,t.nome]));
+  document.querySelector('#usersBody').innerHTML=users.map(u=>`<tr><td>${u.nome}</td><td>${u.login}</td><td>${u.tipo}</td><td>${u.tipo==='admin'?'Todas':u.turma_ids.map(id=>names[id]||id).join(', ')||'Nenhuma'}</td><td>${u.ativo?'Ativo':'Inativo'}</td><td>${u.id===currentUser.id?'Em uso':u.tipo!=='professor'?'Protegido':`<button class="deleteUser btn secondary" data-id="${u.id}" data-name="${u.nome}" style="width:auto;padding:7px 9px;margin:0">Excluir</button>`}</td></tr>`).join('');
+  document.querySelectorAll('.deleteUser').forEach(b=>b.addEventListener('click',async()=>{if(!confirm(`Excluir o cadastro de ${b.dataset.name}? Esta ação não pode ser desfeita.`))return;const r=await apiFetch(`/api/admin/usuarios/${b.dataset.id}`,{method:'DELETE'});const d=await r.json();if(!r.ok){alert(d.detail||'Erro ao excluir usuário');return;}await loadUsers();}));
+  await loadAllowedGoogleEmails();
+}
+async function loadAllowedGoogleEmails(){if(!currentUser||currentUser.tipo!=='admin')return;const r=await apiFetch('/api/admin/allowed-google-emails');const rows=await r.json();document.querySelector('#allowedEmailsBody').innerHTML=rows.length?rows.map(x=>`<tr><td>${x.email}</td><td><button class="removeAllowedEmail btn secondary" data-id="${x.id}">Remover</button></td></tr>`).join(''):'<tr><td colspan="2">Nenhum e-mail autorizado.</td></tr>';document.querySelectorAll('.removeAllowedEmail').forEach(b=>b.addEventListener('click',async()=>{if(!confirm('Remover este e-mail da lista de acesso com Google?'))return;const rr=await apiFetch(`/api/admin/allowed-google-emails/${b.dataset.id}`,{method:'DELETE'});if(!rr.ok){alert((await rr.json()).detail||'Erro ao remover');return;}await loadAllowedGoogleEmails();}));}
+document.querySelector('#addAllowedGoogleEmail').addEventListener('click',async()=>{const input=document.querySelector('#allowedGoogleEmail'),st=document.querySelector('#allowedEmailStatus');try{const email=input.value.trim().toLowerCase();if(!email)throw new Error('Informe um e-mail.');const r=await apiFetch('/api/admin/allowed-google-emails',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email})});const d=await r.json();if(!r.ok)throw new Error(d.detail||'Erro ao autorizar e-mail');st.className='status ok';st.textContent=`${d.email} autorizado para login com Google.`;st.style.display='block';input.value='';await loadAllowedGoogleEmails();}catch(e){st.className='status error';st.textContent=e.message;st.style.display='block';}});
+document.querySelector('#createUser').addEventListener('click',async()=>{
+  const body={nome:document.querySelector('#userName').value.trim(),login:document.querySelector('#userLogin').value.trim(),senha:document.querySelector('#userPass').value,tipo:document.querySelector('#userType').value,turma_ids:[...document.querySelectorAll('.userClass:checked')].map(x=>Number(x.value))};
+  const st=document.querySelector('#userStatus');try{if(!body.nome||!body.login||!body.senha)throw new Error('Preencha nome, login e senha.');const r=await apiFetch('/api/admin/usuarios',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});const d=await r.json();if(!r.ok)throw new Error(d.detail||'Erro ao criar usuário');st.className='status ok';st.textContent='Usuário criado com sucesso.';st.style.display='block';document.querySelector('#userName').value='';document.querySelector('#userLogin').value='';document.querySelector('#userPass').value='';document.querySelectorAll('.userClass').forEach(x=>x.checked=false);await loadUsers();}catch(e){st.className='status error';st.textContent=e.message;st.style.display='block';}
+});
+startApp();
+</script>
+</body>
+</html>
